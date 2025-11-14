@@ -13,7 +13,7 @@
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
 		DC9025DF2EC6742F00F45B22 /* Exceptions for "C" folder in "C" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			publicHeaders = (
+			privateHeaders = (
 				C.h,
 			);
 			target = DC90257D2EC6678800F45B22 /* C */;
