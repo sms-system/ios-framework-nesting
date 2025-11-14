@@ -15,3 +15,8 @@ check:
     otool -L C/build/C.xcframework/ios-arm64/C.framework/C
     @echo ""
     otool -L B/build/B.xcframework/ios-arm64/B.framework/B
+
+clean:
+    just -f A/Justfile clean
+    just -f B/Justfile clean
+    just -f C/Justfile clean

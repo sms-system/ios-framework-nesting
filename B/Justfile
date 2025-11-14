@@ -27,5 +27,5 @@ build-xcframework: build-simulator build-ios
         -framework ./build/archive/ios.xcarchive/Products/Library/Frameworks/B.framework \
         -output ./build/B.xcframework
 
-clear:
+clean:
     rm -rf ./build
