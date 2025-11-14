@@ -1,0 +1,31 @@
+build: build-xcframework
+
+build-simulator:
+    xcodebuild archive -scheme A \
+        -configuration Release \
+        -destination "generic/platform=iOS Simulator" \
+        -archivePath ./build/archive/iossimulator.xcarchive \
+        -derivedDataPath ./build/simulators \
+        -sdk iphonesimulator \
+        SKIP_INSTALL=NO \
+        BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
+
+build-ios:
+    xcodebuild archive -scheme A \
+        -configuration Release \
+        -destination "generic/platform=iOS" \
+        -archivePath ./build/archive/ios.xcarchive \
+        -derivedDataPath ./build/iphoneos \
+        -sdk iphoneos \
+        SKIP_INSTALL=NO \
+        BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
+
+build-xcframework: build-simulator build-ios
+    rm -rf ./build/A.xcframework
+    xcodebuild -create-xcframework \
+        -framework ./build/archive/iossimulator.xcarchive/Products/Library/Frameworks/A.framework \
+        -framework ./build/archive/ios.xcarchive/Products/Library/Frameworks/A.framework \
+        -output ./build/A.xcframework
+
+clear:
+    rm -rf ./build
