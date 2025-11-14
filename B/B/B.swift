@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import C
+internal import C
 
 public class B {
     public init() {}
